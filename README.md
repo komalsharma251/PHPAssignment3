@@ -4,21 +4,22 @@ Author: Komal Sharma
 Technology Stack: PHP 8.2, MySQL, Bootstrap 5, Apache (XAMPP)
 Status: In Process
 
-Overview
+🔹 Overview
 
-SportsPro Technical Support is a web-based system designed to manage products, customers, and technical incidents. It supports role-based access control for Admins, Technicians, and Customers.
+SportsPro Technical Support is a web-based system designed to manage products, customers, and technical incidents.
+It implements role-based access control for Admins, Technicians, and Customers.
 
 The system allows:
 
-Admins to manage products, technicians, and customers.
+Admins: Manage products, technicians, and customers.
 
-Technicians to update incident status.
+Technicians: Update incident status.
 
-Customers to register products and view their incidents.
+Customers: Register products and view incidents.
 
 Secure authentication and authorization workflows.
 
-Features
+🔹 Features
 Authentication & Authorization
 
 User registration with email/password.
@@ -49,35 +50,36 @@ Technician Features
 
 Update incidents assigned to them.
 
-Developer Tools
+🔹 Developer Tools
 
 Bootstrap 5 for responsive UI.
 
-Project Structure
+PHP PDO for secure database interaction.
+
+Centralized database connection via db/database.php.
+
+🔹 Project Structure
 PHPAssignment3/
-├─ account/                   # User-specific landing pages
-├─ auth/                      # Login, signup, logout, authentication checks
-├─ assets/                    # CSS, JS, images, and demo video
-├─ db/                        # Database connection and SQL files
-├─ models/                    # Database interaction logic
+├─ account/                # User-specific landing pages
+├─ auth/                   # Login, signup, logout, authentication checks
+├─ assets/                 # CSS, JS, images, and demo video
+├─ db/                     # Database connection and SQL files
+├─ models/                 # Database interaction logic
 │   ├─ customer_db.php
 │   └─ technician_db.php
 ├─ views/
-│   ├─ admin/                 # Admin dashboard and management pages
-│   ├─ technicians/           # Technician pages
-│   ├─ registrations/         # Customer registration pages
-│   ├─ incidents/             # Incident pages
+│   ├─ admin/              # Admin dashboard and management pages
+│   ├─ technicians/        # Technician pages
+│   ├─ registrations/      # Customer registration pages
+│   ├─ incidents/          # Incident pages
 │   └─ header.php / footer.php
-├─ index.php                  # Landing page (redirects to role-based dashboard)
+├─ index.php               # Landing page (redirects to role-based dashboard)
 └─ README.md
 
-Installation & Setup
-
+🔹 Installation & Setup
 Clone the repository:
-
 git clone https://github.com/komalsharma251/PHPAssignment3.git
 cd PHPAssignment3
-
 
 Setup XAMPP (or similar):
 
@@ -90,6 +92,7 @@ Database Setup:
 Import db/tech_support-4.sql into MySQL.
 
 Update db/database.php with your database credentials:
+
 $host = 'localhost';
 $dbname = 'tech_support';
 $user = 'root';
@@ -101,31 +104,30 @@ $pdo = new PDO($dsn, $user, $pass, [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
 ]);
+
 Base URL Configuration:
 
 Update db/app.php:
 
 define('BASE_URL', 'http://localhost/WEBSITES/PHPAssignment3');
 
-
 Access the application:
 
 Open your browser and navigate to:
 http://localhost/WEBSITES/PHPAssignment3/auth/login.php
 
-Admin Credentials (default for demo):
+🔹 Admin Credentials (for Demo)
 
 Create via signup and assign role admin in the database, or manually insert:
+
 INSERT INTO users (email, password_hash, role, first_name, last_name)
 VALUES ('admin@example.com', '$2y$10$yourhashedpassword', 'admin', 'Admin', 'User');
-Video Demo
+
+🔹 Video Demo
 
 A sample project execution recording is included:
 assets/phpassignment3_execution_recording.mov
-License
+
+🔹 License
 
 MIT License © Komal Sharma
-
-PHP PDO for secure database interaction.
-
-Centralized database connection via db/database.php.
