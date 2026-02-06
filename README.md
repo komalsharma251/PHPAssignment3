@@ -1,75 +1,131 @@
+SportsPro Technical Support Application
 
-# PHP Tech Support Project
+Author: Komal Sharma
+Technology Stack: PHP 8.2, MySQL, Bootstrap 5, Apache (XAMPP)
+Status: In Process
 
-**Author:** Komal Sharma  
-**Date:** February 2, 2026  
-**Project Type:** Web Application (PHP, MySQL)
+Overview
 
-## Overview
+SportsPro Technical Support is a web-based system designed to manage products, customers, and technical incidents. It supports role-based access control for Admins, Technicians, and Customers.
 
-This is a **Tech Support Management System** built with PHP and MySQL.  
-The project allows administrators to manage products, technicians, and client requests efficiently. It is structured with clean MVC principles and uses a MySQL database for data storage.
+The system allows:
 
-## Features
+Admins to manage products, technicians, and customers.
 
- **Admin Panel**
-  - Add, delete, and manage products
-  - Manage technicians
-  - View and handle errors
- **User Management**
-  - Contact form for customer inquiries
-  - Track orders and appointments (can be expanded)
- **Database**
-  - MySQL database (`db/tech_support.sql`)
-  - Stores products, technicians, and other project data
+Technicians to update incident status.
 
-## Project Structure
+Customers to register products and view their incidents.
 
-PHPAssignment2/
-├── controllers/ # PHP controller files
-├── db/ # Database files & SQL export
-├── views/ # Frontend HTML/PHP templates
-│ └── admin/ # Admin panel views
-├── index.php # Main entry point
-├── README.md # Project documentation
-└── LICENSE # License file
+Secure authentication and authorization workflows.
+
+Features
+Authentication & Authorization
+
+User registration with email/password.
+
+Role-based login: admin, user, student.
+
+Session management with secure login/logout.
+
+Admin-only dashboard for management.
+
+Admin Features
+
+Product Management: Add, delete, view products.
+
+Technician Management: Create, update, delete technicians.
+
+Customer Management: Search by last name, update customer info.
+
+Incident Management: Create, assign, and view incidents.
+
+Customer Features
+
+Register products.
+
+View assigned incidents.
+
+Technician Features
+
+Update incidents assigned to them.
+
+Developer Tools
+
+Bootstrap 5 for responsive UI.
+
+Project Structure
+PHPAssignment3/
+├─ account/                   # User-specific landing pages
+├─ auth/                      # Login, signup, logout, authentication checks
+├─ assets/                    # CSS, JS, images, and demo video
+├─ db/                        # Database connection and SQL files
+├─ models/                    # Database interaction logic
+│   ├─ customer_db.php
+│   └─ technician_db.php
+├─ views/
+│   ├─ admin/                 # Admin dashboard and management pages
+│   ├─ technicians/           # Technician pages
+│   ├─ registrations/         # Customer registration pages
+│   ├─ incidents/             # Incident pages
+│   └─ header.php / footer.php
+├─ index.php                  # Landing page (redirects to role-based dashboard)
+└─ README.md
+
+Installation & Setup
+
+Clone the repository:
+
+git clone https://github.com/komalsharma251/PHPAssignment3.git
+cd PHPAssignment3
 
 
-## Installation
+Setup XAMPP (or similar):
 
-1. Clone the repository:
+Place the project in the htdocs directory.
 
-```bash
-git clone https://github.com/komalsharma251/PHPAssignment2.git
-Import the database:
+Start Apache and MySQL.
 
-Open db/tech_support.sql in your MySQL client (e.g., phpMyAdmin, MySQL Workbench)
+Database Setup:
 
-Execute the SQL to create the database and tables
+Import db/tech_support-4.sql into MySQL.
 
-Configure database connection:
-
-Open db/database.php
-
-Update the credentials:
-
+Update db/database.php with your database credentials:
 $host = 'localhost';
-$db_name = 'your_database_name';
-$username = 'your_db_user';
-$password = 'your_db_password';
-Run the project:
+$dbname = 'tech_support';
+$user = 'root';
+$pass = '';
+$charset = 'utf8mb4';
 
-Place the project folder in your web server directory (e.g., XAMPP htdocs)
+$dsn = "mysql:host=$host;dbname=$dbname;charset=$charset";
+$pdo = new PDO($dsn, $user, $pass, [
+    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+]);
+Base URL Configuration:
 
-Open http://localhost/PHPAssignment2/ in your browser
+Update db/app.php:
 
-Dependencies
-PHP 7.x or higher
+define('BASE_URL', 'http://localhost/WEBSITES/PHPAssignment3');
 
-MySQL 5.x or higher
 
-Optional: XAMPP / MAMP / LAMP stack
+Access the application:
 
+Open your browser and navigate to:
+http://localhost/WEBSITES/PHPAssignment3/auth/login.php
+
+Admin Credentials (default for demo):
+
+Create via signup and assign role admin in the database, or manually insert:
+INSERT INTO users (email, password_hash, role, first_name, last_name)
+VALUES ('admin@example.com', '$2y$10$yourhashedpassword', 'admin', 'Admin', 'User');
+Video Demo
+
+A sample project execution recording is included:
+assets/phpassignment3_execution_recording.mov
 License
 
-This project is licensed under the MIT License
+MIT License © Komal Sharma
+
+PHP PDO for secure database interaction.
+
+Centralized database connection via db/database.php.
