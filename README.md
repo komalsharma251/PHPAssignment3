@@ -1,64 +1,58 @@
-SportsPro Technical Support Application
+PHP Tech Support Project
 
 Author: Komal Sharma
-Technology Stack: PHP 8.2, MySQL, Bootstrap 5, Apache (XAMPP)
-Status: In Process
+Date: February 2, 2026
+Project Type: Web Application (PHP, MySQL, Bootstrap 5)
 
-🔹 Overview
+Overview
 
-SportsPro Technical Support is a web-based system designed to manage products, customers, and technical incidents.
-It implements role-based access control for Admins, Technicians, and Customers.
+This is a Tech Support Management System built with PHP and MySQL.
+The project allows administrators to manage products, technicians, and client requests efficiently.
+It follows clean MVC principles and uses a MySQL database for data storage.
+The system implements role-based access control for Admins, Technicians, and Customers, with secure authentication and session management.
 
-The system allows:
-
-Admins: Manage products, technicians, and customers.
-
-Technicians: Update incident status.
-
-Customers: Register products and view incidents.
-
-Secure authentication and authorization workflows.
-
-🔹 Features
+Features
 Authentication & Authorization
 
-User registration with email/password.
+User registration with email/password
 
-Role-based login: admin, user, student.
+Role-based login: admin, user
 
-Session management with secure login/logout.
+Secure login/logout with session management
 
-Admin-only dashboard for management.
+Admin-only dashboard for management
 
-Admin Features
+Admin Panel
 
-Product Management: Add, delete, view products.
+Product Management: Add, delete, and view products
 
-Technician Management: Create, update, delete technicians.
+Technician Management: Create, update, delete technicians
 
-Customer Management: Search by last name, update customer info.
+Customer Management: Search customers by last name, update information
 
-Incident Management: Create, assign, and view incidents.
+Incident Management: Create, assign, and view incidents
 
-Customer Features
+Customer Panel
 
-Register products.
+Register products
 
-View assigned incidents.
+View assigned incidents
 
-Technician Features
+Technician Panel
 
-Update incidents assigned to them.
+Update incidents assigned to them
 
-🔹 Developer Tools
+Technology Stack
 
-Bootstrap 5 for responsive UI.
+Backend: PHP 8.2 with PDO for secure database operations
 
-PHP PDO for secure database interaction.
+Database: MySQL
 
-Centralized database connection via db/database.php.
+Frontend: Bootstrap 5
 
-🔹 Project Structure
+Server: Apache (XAMPP)
+
+Project Structure
 PHPAssignment3/
 ├─ account/                # User-specific landing pages
 ├─ auth/                   # Login, signup, logout, authentication checks
@@ -76,22 +70,22 @@ PHPAssignment3/
 ├─ index.php               # Landing page (redirects to role-based dashboard)
 └─ README.md
 
-🔹 Installation & Setup
-Clone the repository:
+Installation & Setup
+Clone the repository
 git clone https://github.com/komalsharma251/PHPAssignment3.git
 cd PHPAssignment3
 
-Setup XAMPP (or similar):
+Setup XAMPP
 
-Place the project in the htdocs directory.
+Place the project in the htdocs directory
 
-Start Apache and MySQL.
+Start Apache and MySQL
 
-Database Setup:
+Database Setup
 
-Import db/tech_support-4.sql into MySQL.
+Import db/tech_support-4.sql into MySQL
 
-Update db/database.php with your database credentials:
+Update db/database.php with your credentials:
 
 $host = 'localhost';
 $dbname = 'tech_support';
@@ -105,29 +99,29 @@ $pdo = new PDO($dsn, $user, $pass, [
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
 ]);
 
-Base URL Configuration:
+Base URL Configuration
 
 Update db/app.php:
 
 define('BASE_URL', 'http://localhost/WEBSITES/PHPAssignment3');
 
-Access the application:
+Access the application
 
-Open your browser and navigate to:
+Open in your browser:
 http://localhost/WEBSITES/PHPAssignment3/auth/login.php
 
-🔹 Admin Credentials (for Demo)
+Admin Credentials (Demo)
 
 Create via signup and assign role admin in the database, or manually insert:
 
 INSERT INTO users (email, password_hash, role, first_name, last_name)
 VALUES ('admin@example.com', '$2y$10$yourhashedpassword', 'admin', 'Admin', 'User');
 
-🔹 Video Demo
+Video Demo
 
 A sample project execution recording is included:
 assets/phpassignment3_execution_recording.mov
 
-🔹 License
+License
 
 MIT License © Komal Sharma
