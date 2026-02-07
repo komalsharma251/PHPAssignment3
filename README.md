@@ -1,7 +1,7 @@
 # PHP Tech Support Project
 
 **Author:** Komal Sharma  
-**Date:** February 2, 2026  
+**Date:** February 6, 2026  
 **Project Type:** Web Application (PHP, MySQL)
 
 ---
@@ -39,19 +39,25 @@ It follows clean MVC principles and uses a MySQL database for persistent data st
 ## Project Structure
 
 PHPAssignment3/
-├── account/ # User-specific landing pages
-├── auth/ # Login, signup, logout, authentication checks
-├── assets/ # CSS, JS, images, demo video
-├── db/ # Database connection & SQL files
-├── models/ # Database interaction logic
-│ ├── customer_db.php
-│ └── technician_db.php
+ ├── account/ # User-specific landing pages
+ 
+ ├── auth/ # Login, signup, logout, authentication checks
+ 
+ ├── assets/ # CSS, JS, images, demo video
+ 
+ ├── db/ # Database connection & SQL files
+ 
+ ├── models/ # Database interaction logic
+  ├── customer_db.php
+  └── technician_db.php
+
 ├── views/
-│ ├── admin/ # Admin dashboard & management pages
-│ ├── technicians/ # Technician pages
-│ ├── registrations/ # Customer registration pages
-│ ├── incidents/ # Incident pages
-│ └── header.php / footer.php
+  ├── admin/ # Admin dashboard & management pages
+  ├── technicians/ # Technician pages
+  ├── registrations/ # Customer registration pages
+  ├── incidents/ # Incident pages
+  └── header.php / footer.php
+
 ├── index.php # Landing page (redirects to role-based dashboard)
 └── README.md # Project documentation
 
