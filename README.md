@@ -1,91 +1,81 @@
-PHP Tech Support Project
+# PHP Tech Support Project
 
-Author: Komal Sharma
-Date: February 2, 2026
-Project Type: Web Application (PHP, MySQL, Bootstrap 5)
+**Author:** Komal Sharma  
+**Date:** February 2, 2026  
+**Project Type:** Web Application (PHP, MySQL)
 
-Overview
+---
 
-This is a Tech Support Management System built with PHP and MySQL.
-The project allows administrators to manage products, technicians, and client requests efficiently.
-It follows clean MVC principles and uses a MySQL database for data storage.
-The system implements role-based access control for Admins, Technicians, and Customers, with secure authentication and session management.
+## Overview
 
-Features
-Authentication & Authorization
+This is a **Tech Support Management System** built with PHP and MySQL.  
+The system allows administrators to efficiently manage products, technicians, and customer incidents.  
+It follows clean MVC principles and uses a MySQL database for persistent data storage.
 
-User registration with email/password
+---
 
-Role-based login: admin, user
+## Features
 
-Secure login/logout with session management
+**Admin Panel**
+- Manage products: add, delete, view
+- Manage technicians: create, update, delete
+- Manage customers: search by last name, update info
+- Incident management: create, assign, and view incidents
 
-Admin-only dashboard for management
+**Technician Panel**
+- Update assigned incidents
 
-Admin Panel
+**Customer Panel**
+- Register products
+- View assigned incidents
 
-Product Management: Add, delete, and view products
+**Authentication & Authorization**
+- Secure login/logout
+- Role-based access: admin, technician, customer
+- Session management for protected routes
 
-Technician Management: Create, update, delete technicians
+---
 
-Customer Management: Search customers by last name, update information
+## Project Structure
 
-Incident Management: Create, assign, and view incidents
-
-Customer Panel
-
-Register products
-
-View assigned incidents
-
-Technician Panel
-
-Update incidents assigned to them
-
-Technology Stack
-
-Backend: PHP 8.2 with PDO for secure database operations
-
-Database: MySQL
-
-Frontend: Bootstrap 5
-
-Server: Apache (XAMPP)
-
-Project Structure
 PHPAssignment3/
-├─ account/                # User-specific landing pages
-├─ auth/                   # Login, signup, logout, authentication checks
-├─ assets/                 # CSS, JS, images, and demo video
-├─ db/                     # Database connection and SQL files
-├─ models/                 # Database interaction logic
-│   ├─ customer_db.php
-│   └─ technician_db.php
-├─ views/
-│   ├─ admin/              # Admin dashboard and management pages
-│   ├─ technicians/        # Technician pages
-│   ├─ registrations/      # Customer registration pages
-│   ├─ incidents/          # Incident pages
-│   └─ header.php / footer.php
-├─ index.php               # Landing page (redirects to role-based dashboard)
-└─ README.md
+├── account/ # User-specific landing pages
+├── auth/ # Login, signup, logout, authentication checks
+├── assets/ # CSS, JS, images, demo video
+├── db/ # Database connection & SQL files
+├── models/ # Database interaction logic
+│ ├── customer_db.php
+│ └── technician_db.php
+├── views/
+│ ├── admin/ # Admin dashboard & management pages
+│ ├── technicians/ # Technician pages
+│ ├── registrations/ # Customer registration pages
+│ ├── incidents/ # Incident pages
+│ └── header.php / footer.php
+├── index.php # Landing page (redirects to role-based dashboard)
+└── README.md # Project documentation
 
-Installation & Setup
-Clone the repository
+
+---
+
+## Installation & Setup
+
+1. **Clone the repository:**
+
+```bash
 git clone https://github.com/komalsharma251/PHPAssignment3.git
 cd PHPAssignment3
+Set up XAMPP (or any PHP/MySQL stack):
 
-Setup XAMPP
+Place the project in your htdocs directory.
 
-Place the project in the htdocs directory
+Start Apache and MySQL.
 
-Start Apache and MySQL
+Database Setup:
 
-Database Setup
+Import db/tech_support-4.sql into MySQL.
 
-Import db/tech_support-4.sql into MySQL
-
-Update db/database.php with your credentials:
+Update db/database.php with your database credentials:
 
 $host = 'localhost';
 $dbname = 'tech_support';
@@ -98,30 +88,33 @@ $pdo = new PDO($dsn, $user, $pass, [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
 ]);
-
-Base URL Configuration
+Set Base URL:
 
 Update db/app.php:
 
 define('BASE_URL', 'http://localhost/WEBSITES/PHPAssignment3');
+Access the application:
 
-Access the application
-
-Open in your browser:
+Open your browser and navigate to:
 http://localhost/WEBSITES/PHPAssignment3/auth/login.php
 
-Admin Credentials (Demo)
-
+Admin Credentials (Default for Demo)
 Create via signup and assign role admin in the database, or manually insert:
 
 INSERT INTO users (email, password_hash, role, first_name, last_name)
 VALUES ('admin@example.com', '$2y$10$yourhashedpassword', 'admin', 'Admin', 'User');
-
-Video Demo
-
+Demo Video
 A sample project execution recording is included:
 assets/phpassignment3_execution_recording.mov
 
-License
+Dependencies
+PHP 8.x or higher
 
+MySQL 5.x or higher
+
+Optional: XAMPP / MAMP / LAMP stack
+
+Bootstrap 5 for responsive UI
+
+License
 MIT License © Komal Sharma
